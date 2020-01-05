@@ -29,7 +29,7 @@ module.exports = {
     },
     async delete(req, res) {
         try {
-            await Post.deleteOnfe({ _id: req.params.id })
+            await Post.deleteOne({ _id: req.params.id })
 
             // req.io.emit('delete', post)
 
