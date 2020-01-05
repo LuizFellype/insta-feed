@@ -1,6 +1,7 @@
 {
   "name": "instaMongo",
   "version": "1.0.0",
+  "author": "Luiz Fellype",
   "main": "index.js",
   "license": "MIT",
   "engines": {
