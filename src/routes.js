@@ -11,6 +11,7 @@ routes.get('/', (req,res) => res.json({funfando: true}))
 
 routes.get('/posts', PostController.getAll)
 routes.post('/posts', upload.single('image'), PostController.create)
+routes.post('/posts/:id/delete', PostController.delete)
 routes.post('/posts/:id/like', LikeController.increase)
 routes.post('/posts/:id/unlike', LikeController.decrease)
 

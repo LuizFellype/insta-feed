@@ -15,7 +15,7 @@ module.exports = {
         const { filename: image } = req.file
 
         await sharp(req.file.path).resize(500)
-        .jpeg({ quality: 70 }).toFile(path.resolve(req.file.destination, 'resized', image))
+            .jpeg({ quality: 70 }).toFile(path.resolve(req.file.destination, 'resized', image))
 
         fs.unlinkSync(req.file.path)
 
@@ -26,5 +26,18 @@ module.exports = {
         req.io.emit('post', post)
 
         return res.json(post)
+    },
+    async delete(req, res) {
+        try {
+            await Post.deleteOnfe({ _id: req.params.id })
+
+            // req.io.emit('delete', post)
+
+            return res.json({ idDeleted: req.params.id })
+        } catch (error) {
+            return res.json({ error })
+        }
+
+
     }
 }
