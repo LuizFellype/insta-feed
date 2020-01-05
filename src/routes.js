@@ -7,6 +7,8 @@ const LikeController = require('./controllers/LikeController')
 const routes = new express.Router()
 const upload = multer(uploadConfig)
 
+routes.get('/', (req,res) => res.json({funfando: true}))
+
 routes.get('/posts', PostController.getAll)
 routes.post('/posts', upload.single('image'), PostController.create)
 routes.post('/posts/:id/like', LikeController.increase)
